@@ -5,32 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSV Prediction</title>
     <link rel="icon" type="image/png" href="/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(120deg, #f6d365, #fda085);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(120deg, #ff9a9e, #fad0c4);
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            animation: gradient-animation 10s ease infinite;
             color: #333;
         }
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
         .container {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
             text-align: center;
             width: 100%;
-            max-width: 400px;
+            max-width: 450px;
+            animation: fade-in 1.5s ease;
+            box-sizing: border-box;
+        }
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         h1 {
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
             color: #444;
+            font-weight: 600;
         }
         form {
             display: flex;
@@ -39,38 +53,59 @@
         }
         input[type="file"] {
             margin: 1rem 0;
-            padding: 0.5rem;
+            padding: 0.7rem;
             font-size: 1rem;
-            
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            width: 80%;
+            text-align: center;
+            background-color: #fefefe;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         button {
-            background-color: #fda085;
+            background: linear-gradient(45deg, #ff758c, #ff7eb3);
             border: none;
             color: white;
             font-size: 1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
+            font-weight: 600;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
         }
         button:hover {
-            background-color: #f6d365;
+            transform: translateY(-2px);
+            background: linear-gradient(45deg, #ff92a6, #ff8fba);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         footer {
             margin-top: 2rem;
             font-size: 0.8rem;
-            color: #666;
+            color: #888;
+        }
+        .title_name {
+            font-size: 2.3rem;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+           
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Upload Your Dataset</h1>
-        <form action="/predict" method="post" enctype="multipart/form-data">
-            <input type="file" name="file" accept=".csv, .xls, .xlsx" required>
-            <button type="submit">Upload and Predict</button>
-        </form>
-        <footer>© 2024 Your Project Name</footer>
+    <div>
+        <div class="title_name">IRIS PREDICTOR</div>
+        <div class="container">
+            <h1>Upload Your Dataset</h1>
+            <form action="/predict" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".csv, .xls, .xlsx" required>
+                <button type="submit">Upload and Predict</button>
+            </form>
+            <footer>© 2024 SUDHIR NISHAD </footer>
+        </div>
     </div>
 </body>
 </html>
